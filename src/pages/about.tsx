@@ -2,6 +2,7 @@
  * @Author: zgl
  * @Description: TODO ① 初试 Next.js 新建页面功能（无需 React Router）
  *                    ② 体验 Static Generation 预渲染方式
+ *                    ③ 体验 Server-side rending 预渲染方式
  */
 import Head from "next/head";
 
