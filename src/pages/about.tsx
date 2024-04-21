@@ -26,16 +26,31 @@ export default function About(props: PropsType) {
   );
 }
 
+// /**
+//  * @description: 此为固定写法，即必须包含 async 和 getStaticProps
+//  * @return {*} // return 写法也是固定的，返回的静态属性信息需要放到 props 键值中
+//  */
+// export async function getStaticProps() {
+//   console.log("仅在 build 构建时运行此函数，在线上环境时不会运行");
+//   // async function 中可以通过 await 来异步获取数据
+//   return {
+//     props: {
+//       info: "仅在构建时获取的静态属性信息",
+//     },
+//   };
+// }
+
 /**
- * @description: 此为固定写法，即必须包含 async 和 getStaticProps
- * @return {*} // return 写法也是固定的，返回的静态属性信息需要放到 props 键值中
+ * @description: 在构建的时候不执行，而在每次请求的时候执行
+ * @return {*}
  */
-export async function getStaticProps() {
-  console.log("仅在 build 构建时运行此函数，在线上环境时不会运行");
-  // async function 中可以通过 await 来异步获取数据
+export async function getServerSideProps() {
+  console.log("在构建的时候不执行，而在每次请求的时候执行");
+  // await 异步请求数据
+  let num = 123;
   return {
     props: {
-      info: "仅在构建时获取的静态属性信息",
+      info: "每次请求时获取的数据 " + num,
     },
   };
 }
